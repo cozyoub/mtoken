@@ -1,0 +1,252 @@
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  background-color: #42137c;
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
+  background-color: #1bb1e7;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #1bb1e7;
+}
+
+#wrap {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(-120deg, #42137c, #170a3d);
+  position: relative;
+  padding: 126px 16px 48px 16px;
+  display: table;
+}
+.inWrap{
+  padding: 24px 0;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.form1{
+  position: static;
+  transform: none;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  color: #fff;
+  padding: 48px 40px;
+  background-color: rgba(32, 46, 96, 0.8);
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  animation: showOff 0.6s 0.3s both;
+  opacity: 0;
+  font-size: 0;
+}
+.form2{
+  color: #fff;
+  margin-top: 24px;
+}
+form > div {
+  display: inline-block;
+  width: calc((100% - 40px) / 2);
+  vertical-align: top;
+}
+form > div:nth-child(2n){
+  margin-right: 40px;
+}
+
+form > div > div{
+  width: 100%;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+@keyframes showOff {
+  from {
+    transform: translateY(20%);
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+h1{
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+h2{
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+input{
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-top:4px;
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+}
+.phnum input:nth-child(3){
+  width: calc(100% - 117px);
+  margin-left: 8px;
+}
+#ID{
+  padding-right: 120px;
+}
+#MN{
+  padding-right: 150px;
+}
+label{
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  padding: 4px 16px;
+  margin-bottom: 4px;
+  background-color: #170a3d;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  line-height: 24px;
+  margin-bottom: 4px;
+}
+input[type="button"]{
+  width: auto;
+  background-color: rgba(106, 110, 179, 0.6);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 4px 16px;
+  position: absolute;
+  top: 40px;
+  right: 4px;
+}
+input[type="button"]:hover{
+  background-color: #6a6eb3;
+}
+input[value="확인"]{
+  position: static;
+  width: 100%;
+  background-color: rgba(27, 177, 231, 0.6);
+  padding: 8px;
+  margin-top: 16px;
+}
+input[value="확인"]:hover{
+  background-color: #1bb1e7;
+}
+form > div > div > div{
+  font-size: 12px;
+  text-align: right;
+  padding-top: 4px;
+  float: left;
+}
+footer{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px 32px 16px 0;
+  text-align: right;
+  color: #efefef;
+  font-size: 12px;
+}
+
+/**국가코드선택**/
+.selconbox{
+  position: relative;
+  height: 34px;
+  width: 109px;
+  //overflow: hidden;
+  padding-top: 0;
+  color: #170a3d;
+  font-weight: bold;
+  margin-top: 4px;
+}
+.selconbox.on{
+  overflow: visible; 
+}
+.conlst{
+  position: absolute;
+  top: 38px;
+  left: 0;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  z-index: 2;
+  transition: all 0.3s;
+}
+.selconbox.on .conlst{
+  height: 238px;
+}
+.selconbox .selcon span > span{
+  padding: 0;
+  margin: 0;
+  margin-left:24px;
+  transition: transform 0.3s;
+}
+.selconbox.on span > span{
+  transform: rotate(180deg);
+} 
+.selconbox div{
+  border-radius: 4px;
+  background-color: #fff;
+}
+.selconbox div div{
+  text-align: left;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.selconbox div div:hover{
+  background-color: #1bb1e7;
+  color: #fff;
+}
+.selconbox div div span{
+  display: inline-block;
+  padding: 4px 8px;
+  text-align: center;
+}
+.selconbox div div img{
+  height: 22px;
+  padding: 4px;
+}
+/**************/
+
+
+@media all and (max-width:1023px){
+  #wrap {
+  padding: 134px 8px 24px 8px;
+}
+  
+  .form1{
+    padding: 24px 16px;
+  }
+  form > div {
+  width: 100%;
+}
+  #MN{
+    padding-right: 16px;
+  }
+  .phnum input[type='button']{
+    top: 79px;
+    right: auto;
+    left: 4px;
+  }
+  .phnum input:last-child{
+    padding-left: 144px;
+  }
+form > div:nth-child(2n){
+  margin-right: 0;
+}
+  h2{
+    margin-bottom: 24px;
+  }
+  form > div > div{
+  margin-bottom: 32px;
+}
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title></title>
+
+  <!--[if lt IE 9]>
+      <script src="./js/html5.js"></script>
+   <![endif]-->
+  <link href="css/common.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="./css/slick.css">
+  <link rel="stylesheet" type="text/css" href="./css/slick-theme.css">
+  <link href="css/index.css" rel="stylesheet" type="text/css">
+
+  <script src="js/jquery-3.1.1.min.js"></script>
+</head>
+
+<body>
+  <div id="wrap">
+    <div class="inWrap">
+      <div class="regular slider">
+        <div id="ex01"></div>
+        <div id="ex001">
+          <p class="title">앤드어스의 차별성</p>
+          <div class="content">
+            <div class="top">
+              <div>
+                <div class="icon"><img src="img/i1-1.png"></div>
+                <p>지속가능한 탈중앙화의 공정한<br>합의 알고리즘인 Deb 합의 알고리즘 적용
+                </p>
+              </div>
+              <div>
+                <div class="icon"><img src="img/i1-2.png"></div>
+                <p>암호화폐 발행이 없는 채굴 기능으로<br>
+                  채굴과 암호화폐 발행의무 연계 실현
+                </p>
+              </div>
+            </div>
+            <div class="bottom">
+              <div>
+                <div class="icon"><img src="img/i1-3.png"></div>
+                <p>포크 발생 없이 블록의<br>최종성 보장으로
+                  블록 생성과<br>최종성의 동일 유지
+                </p>
+              </div>
+              <div>
+                <div class="icon"><img src="img/i1-4.png"></div>
+                <p>퍼블릭 블록체인 중<br>최고 성능인 1,000TPS<br>
+                  이상의 고속 성능 보장
+                </p>
+              </div>
+              <div>
+                <div class="icon"><img src="img/i1-5.png"></div>
+                <p>이더리움과 AI의 연계에 의한 Dapp 서비스 생태계<br> 지원 강화
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="ex002">
+          <p class="title">VISION</p>
+          <P>우리 모두가 함께 잘 사는 공정하고 정의로운 블록체인 세상 실현</P>
+          <div>
+            <p>01.</p>
+            <i><img src="img/global.png"></i>
+            <p>신뢰기반의 고속 퍼블릭<br>블록체인 플랫폼</p>
+          </div>
+          <div>
+            <p>02.</p>
+            <i><img src="img/global.png"></i>
+            <p>블록체인<br>경제 생태계 실현</p>
+          </div>
+          <div>
+            <p>03.</p>
+            <i><img src="img/global.png"></i>
+            <p>편의성의 극대화된<br>Dapp 생태계 구축 인프라</p>
+          </div>
+        </div>
+        <div id="ex003">
+          <p class="title">앤드어스 체인</p>
+          <P>미래 암호경제 실현을 위한 디지털 자산거래 플랫폼</P>
+          <div>
+            <i><img src="img/i3-1.png"></i>
+            <p>01 사용자의 화폐발생</p>
+          </div>
+          <div>
+            <i><img src="img/i3-2.png"></i>
+            <p>02 스마트계약</p>
+          </div>
+          <div>
+            <i><img src="img/i3-3.png"></i>
+            <p>03 스마트자산</p>
+          </div>
+          <div>
+            <i><img src="img/i3-4.png"></i>
+            <p>04 DAO</p>
+          </div>
+        </div>      
+      </div>
+      <div class="inright">
+        <form>
+          <span>ID</span>
+          <input type="text" placeholder="아이디를 입력해주세요">
+          <span>PW</span>
+          <input type="password" placeholder="비밀번호를 입력해주세요">
+          <input type="button" value="join" onclick="location.href='./join.html'">
+          <input type="button" value="login" onclick="location.href='./buyingNinfo.html'">
+        </form>
+        <h1><img src="./img/logo.png" alt="logo"></h1>
+        <a href="https://www.anduschain.io/ico">go to ANDUSCHAIN page</a>
+      </div>
+    </div>
+    <footer>
+      © 2019 ANDUSCHAIN. All rights reserved.
+    </footer>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+  <script src="./js/slick.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(document).on('ready', function() {
+
+      $(".regular").slick({
+        autoplay: true,
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      });
+
+    });
+  </script>
+</body></html>

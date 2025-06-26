@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title></title>
+
+  <!--[if lt IE 9]>
+      <script src="./js/html5.js"></script>
+   <![endif]-->
+  <link href="css/common.css" rel="stylesheet" type="text/css">
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <script>
+    $(function() {
+      $('nav li').on('click', function() {
+        $('nav li').removeClass('on');
+        $(this).addClass('on');
+      });
+
+      $('nav li').eq(2).on('click', function() {
+        $('#sec1 > article').removeClass('on');
+        $('.arti1').addClass('on');
+      });
+      $('nav li').eq(1).on('click', function() {
+        $('#sec1 > article').removeClass('on');
+        $('.arti2').addClass('on');
+      });
+      $('nav li').eq(0).on('click', function() {
+        $('#sec1 > article').removeClass('on');
+        $('.arti3').addClass('on');
+      });
+      $('nav li').eq(3).on('click', function() {
+        $('#sec1 > article').removeClass('on');
+        $('.arti4').addClass('on');
+      });
+
+      $('.memberBtn').on('click', function() {
+        $('.memberinfo').toggleClass('on');
+      });
+
+    });
+
+
+    $(function() {
+      $('.coinShiftBtn > button').on('click', function() {
+        $('.coinShiftBtn > button').removeClass('on');
+        $(this).addClass('on');
+      });
+
+      $('.coinShiftBtn > button').eq(0).on('click', function() {
+        $('.arti1 > div').removeClass('on');
+        $('.BTCEX').addClass('on');
+      });
+      $('.coinShiftBtn > button').eq(1).on('click', function() {
+        $('.arti1 > div').removeClass('on');
+        $('.ETHEX').addClass('on');
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <div><img src="./img/mtoken2.svg" alt="logo"></div>
+    <div>아이디가들어갑니다.</div>
+    <div class='logOutBtn' onclick="location.href='./index.html'">
+      close
+    </div>
+  </header>
+  <div id="wrap">
+    <nav>
+      <ul>
+        <li class="on">
+          wallet
+        </li>
+        <li>
+          info
+        </li>
+        <li>
+          buying
+        </li>
+        <li>
+          reward
+        </li>
+      </ul>
+    </nav>
+    <section id="sec1">
+      <article class="arti1">
+        <div class="coinShiftBtn">
+          <button class="on">BTC</button>
+          <button>ETH</button>
+        </div>
+
+        <div class="BTCEX on">
+          <div class="marketPrice">
+            <span id="btc">1</span> <span>BTC</span>
+            &nbsp; = &nbsp;
+            <!-- <span id="krw"></span> <span>KRW</span>  -->
+            <!-- &nbsp = &nbsp  -->
+            <span id="mtoken">2,000,000</span>
+            <span>MTC</span>
+          </div>
+
+
+          <!-- 비트 입고 start -->
+          <form name="insert_btc" method="post" action="./InsertBTCAction.tr">
+            <input type="hidden" id="to_address" name="to_address" value="18ThfiqFJkbhLWcfBoZ8geUch2NAgtXzna" readonly="">
+
+
+            <h1>Exchange BTC ▶ <span>MTC</span></h1>
+            <div class="intop">
+              <label for="amount">수량</label>
+              <div class="amt1">
+                <input id="btc_amount" name="btc_amount" type="text" placeholder="보내는 수량을 입력해주세요." onkeydown="return removeChar2(event)" onblur="return removeChar2(event)">
+                <span>BTC</span>
+              </div>
+              <div class="amt2">
+                <input id="mtoken_amount" name="mtoken_amount" maxlength="10" oninput="maxLengthCheck(this)" type="text" value="0" readonly="">
+                <span>MTC</span>
+              </div>
+            </div>
+            <div class="inbot">
+              <label>입금 할 지갑주소<br></label>
+              <div id="copy_div" onclick="copyDivToClipboard();">18ThfiqFJkbhLWcfBoZ8geUch2NAgtXzna <button>복사하기</button></div>
+              <span>*위 Bitcoin주소로 입금한 후 보내는 사람 지갑주소와 TxHash를 아래에 입력해 주세요.</span>
+            </div>
+            <div class="inbot">
+              <label>보내는 사람 지갑주소</label>
+              <input type="text" id="from_address" name="from_address" placeholder="보내는 사람 지갑주소를 입력해주세요." onkeydown="fn_press_sub(this)" onblur="fn_press_sub(this)">
+              <label>TX HASH</label>
+              <input type="text" id="tx_hash" name="tx_hash" placeholder="TX HASH를 입력해주세요." onkeydown="fn_press_sub(this)" onblur="fn_press_sub(this)">
+            </div>
+            <!-- <p>주의 설명</p> -->
+            <input type="button" value="보내기" onclick="check_btc_insert()">
+          </form>
+
+          <div class="table">
+            <h2>거래내역</h2>
+            <div class="tabH">
+              <div>TX HASH</div>
+              <div>수량</div>
+              <div>처리상태</div>
+              <div>신청 일시</div>
+            </div>
+            <div class="tabB">
+
+              <div>
+                <div>dfdfdf</div>
+                <div>
+                  <span>
+                    10
+                  </span> BTC
+                </div>
+                <div>
+                  대기중
+                </div>
+                <div>
+                  2019-04-15 19:39:03
+                </div>
+              </div>
+
+              <div>
+                <div>dfdfdf</div>
+                <div>
+                  <span>
+                    10
+                  </span> BTC
+                </div>
+                <div>
+                  대기중
+                </div>
+                <div>
+                  2019-04-15 19:38:36
+                </div>
+              </div>
+
+            </div>
+            <div class="tabF"></div>
+          </div>
+        </div>
+
+        <div class="ETHEX">
+          <div class="marketPrice">
+            <span id="btc">1</span> <span>ETH</span>
+            &nbsp; = &nbsp;
+            <!-- <span id="krw"></span> <span>KRW</span>  -->
+            <!-- &nbsp = &nbsp  -->
+            <span id="mtoken">2,000,000</span>
+            <span>MTC</span>
+          </div>
+
+
+          <!-- 비트 입고 start -->
+          <form name="insert_btc" method="post" action="./InsertBTCAction.tr">
+            <input type="hidden" id="to_address" name="to_address" value="18ThfiqFJkbhLWcfBoZ8geUch2NAgtXzna" readonly="">
+
+
+            <h1>Exchange ETH ▶ <span>MTC</span></h1>
+            <div class="intop">
+              <label for="amount">수량</label>
+              <div class="amt1">
+                <input id="btc_amount" name="btc_amount" type="text" placeholder="보내는 수량을 입력해주세요." onkeydown="return removeChar2(event)" onblur="return removeChar2(event)">
+                <span>ETH</span>
+              </div>
+              <div class="amt2">
+                <input id="mtoken_amount" name="mtoken_amount" maxlength="10" oninput="maxLengthCheck(this)" type="text" value="0" readonly="">
+                <span>MTC</span>
+              </div>
+            </div>
+            <div class="inbot">
+              <label>입금 할 지갑주소<br></label>
+              <div id="copy_div" onclick="copyDivToClipboard();">18ThfiqFJkbhLWcfBoZ8geUch2NAgtXzna <button>복사하기</button></div>
+              <span>*위 Etherium주소로 입금한 후 보내는 사람 지갑주소와 TxHash를 아래에 입력해 주세요.</span>
+            </div>
+            <div class="inbot">
+              <label>보내는 사람 지갑주소</label>
+              <input type="text" id="from_address" name="from_address" placeholder="보내는 사람 지갑주소를 입력해주세요." onkeydown="fn_press_sub(this)" onblur="fn_press_sub(this)">
+              <label>TX HASH</label>
+              <input type="text" id="tx_hash" name="tx_hash" placeholder="TX HASH를 입력해주세요." onkeydown="fn_press_sub(this)" onblur="fn_press_sub(this)">
+            </div>
+            <!-- <p>주의 설명</p> -->
+            <input type="button" value="보내기" onclick="check_btc_insert()">
+          </form>
+
+          <div class="table">
+            <h2>거래내역</h2>
+            <div class="tabH">
+              <div>TX HASH</div>
+              <div>수량</div>
+              <div>처리상태</div>
+              <div>신청 일시</div>
+            </div>
+            <div class="tabB">
+
+              <div>
+                <div>dfdfdf</div>
+                <div>
+                  <span>
+                    10
+                  </span> ETH
+                </div>
+                <div>
+                  대기중
+                </div>
+                <div>
+                  2019-04-15 19:39:03
+                </div>
+              </div>
+
+              <div>
+                <div>dfdfdf</div>
+                <div>
+                  <span>
+                    10
+                  </span> ETH
+                </div>
+                <div>
+                  대기중
+                </div>
+                <div>
+                  2019-04-15 19:38:36
+                </div>
+              </div>
+
+            </div>
+            <div class="tabF"></div>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- 비트 입고 end -->
+
+      <article class="arti2">
+        <h1>MY INFO</h1>
+        <form>
+          <div>
+            <label for="ID">ID</label>
+            <input id="ID" type="text" value="bok2@naver.com">
+            <label for="PW">PW</label>
+            <input id="PW" type="password" placeholder="새 비밀번호 입력">
+            <input type="password" placeholder="새 비밀번호 재입력">
+
+            <label for="TXPW">TX PW</label>
+            <input type="text" ID="TXPW" placeholder="새 TX 비밀번호 입력">
+            <input type="text" placeholder="새 TX 비밀번호 재입력">
+
+            <label for="NAME">NAME</label>
+            <input type="text" id="NAME" value="김 이복">
+
+            <label for="MN">PHONE NUMBER</label>
+            <input type="text" id="MN" value="010 - 1234 - 9876">
+
+            <label for="FID">RECOMMENDER ID</label>
+            <input type="text" id="FID" value="recomender@gmail.com">
+          </div>
+          <input type="button" value="확인" onclick="location.href='./index.html'">
+        </form>
+      </article>
+      <article class="arti3 on">
+        <h1>WALLET</h1>
+        <form>
+          <div class="intop">
+            <label>BALANCE</label>
+            <div class="amt2">
+              <input type="text" value="3,038,483" readonly>
+              <span>BTC</span>
+            </div>
+          </div>
+          <h1>SEND</h1>
+          <div class="intop">
+            <label>AMOUNT</label>
+            <div class="amt1">
+              <input type="text" placeholder="보낼 수량을 정해주세요">
+              <span>BTC</span>
+            </div>
+            <label>받는 사람 ID</label>
+            <input type="text">
+            <label>TX PW</label>
+            <input type="text">
+          </div>
+          <input type="button" value="보내기">
+        </form>
+
+        <div class="table">
+          <h2>거래내역</h2>
+          <div class="tabH">
+            <div>FROM</div>
+            <div>TO</div>
+            <div>Mtoken 수량</div>
+            <div>날짜</div>
+          </div>
+          <div class="tabB">
+            <div>
+              <div>안상현</div>
+              <div>화이팅</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>2019-04-09</div>
+            </div>
+            <div>
+              <div>안상현</div>
+              <div>화이팅</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>2019-04-09</div>
+            </div>
+            <div>
+              <div>안상현</div>
+              <div>화이팅</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>2019-04-09</div>
+            </div>
+            <div>
+              <div>안상현</div>
+              <div>화이팅</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>2019-04-09</div>
+            </div>
+            <div>
+              <div>안상현</div>
+              <div>화이팅</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>2019-04-09</div>
+            </div>
+            <div>
+              <div>안상현</div>
+              <div>화이팅</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>2019-04-09</div>
+            </div>
+            <div>
+              <div>안상현</div>
+              <div>화이팅</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>2019-04-09</div>
+            </div>
+            <div>
+              <div>안상현</div>
+              <div>화이팅</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>2019-04-09</div>
+            </div>
+            <div>
+              <div>안상현</div>
+              <div>화이팅</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>2019-04-09</div>
+            </div>
+            <div>
+              <div>안상현</div>
+              <div>화이팅</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>2019-04-09</div>
+            </div>
+          </div>
+          <div class="tabF"></div>
+        </div>
+
+      </article>
+
+      <article class="arti4">
+        <h1>REWARD</h1>
+        <form>
+          <div class="gradenoti">
+            등급별 수익률
+            <img src="./img/grade1.png" alt="grade1">
+            50%
+            <img src="./img/grade2.png" alt="grade2">
+            25%
+            <img src="./img/grade3.png" alt="grade3">
+            10%
+            <img src="./img/grade4.png" alt="grade4">
+            -%
+          </div>
+          <div class="gradeinfo">
+            <span><img src="./img/grade1.png" alt="금왕관등급"></span>
+            <!--파일명별 grade1 금왕관, grade2 은왕관, grade3 동왕관, grade4 동관-->
+            <span>아이디가 들어갑니다.</span>
+          </div>
+          <div class="ETHWLT">
+            <label>BALANCE</label>
+            <div class="ADDBF">
+              <input type="text" placeholder="이더리움 지갑 주소를 입력해 주세요">
+              <input type="button" value="지갑등록">
+            </div>
+            <!-- 등록시 변경될 태그
+            <div class="ADDAT">
+              <div>지갑주소가 들어가지요</div>
+              <input type="text" placeholder="변경할 이더리움 지갑 주소를 입력해 주세요">
+              <input type="button" value="지갑변경">
+            </div>
+            -->
+          </div>
+          <div class="memberinfo">
+            <label>MEMBER LIST</label>
+            <div class="memberBtn">회원보기</div>
+            <div class="members">
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+              <span>김복자</span>
+              <span>이말년</span>
+              <span>김또깡</span>
+            </div>
+          </div>
+        </form>
+        <div class="table">
+          <h2>보상내역</h2>
+          <div class="tabH">
+            <div>TX HASH</div>
+            <div>ADDRESS</div>
+            <div>수량</div>
+            <div>날짜</div>
+          </div>
+          <div class="tabB">
+            <div>
+              <div>#TXHDFOI348752GLFJGLKJDFGKLJRITL875934858LKFLKHGL</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>처리중</div>
+              <div>2019-04-09 00:00:00</div>
+            </div>
+            <div>
+              <div>#TXHDFOI348752GLFJGLKJDFGKLJRITL875934858LKFLKHGL</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>처리중</div>
+              <div>2019-04-09 00:00:00</div>
+            </div>
+            <div>
+              <div>#TXHDFOI348752GLFJGLKJDFGKLJRITL875934858LKFLKHGL</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>처리중</div>
+              <div>2019-04-09 00:00:00</div>
+            </div>
+            <div>
+              <div>#TXHDFOI348752GLFJGLKJDFGKLJRITL875934858LKFLKHGL</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>처리중</div>
+              <div>2019-04-09 00:00:00</div>
+            </div>
+            <div>
+              <div>#TXHDFOI348752GLFJGLKJDFGKLJRITL875934858LKFLKHGL</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>처리중</div>
+              <div>2019-04-09 00:00:00</div>
+            </div>
+            <div>
+              <div>#TXHDFOI348752GLFJGLKJDFGKLJRITL875934858LKFLKHGL</div>
+              <div><span>594583</span> Mtoken</div>
+              <div>완료됨</div>
+              <div>2019-04-09 00:00:00</div>
+            </div>
+          </div>
+          <div class="tabF"></div>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      © 2019 ANDUSCHAIN. All rights reserved.
+    </footer>
+  </div>
+
+</body></html>
